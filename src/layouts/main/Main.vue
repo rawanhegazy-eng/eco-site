@@ -39,7 +39,7 @@
   
   
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-0">
-  <a class="navbar-brand pull-left" href="/ui-elements/card/basic"><img id="amazon-logo" style="width: 80px; height:80px;" src="@/assets/images/Amazon-icon.png"></a>
+  <a class="navbar-brand pull-left" style="cursor:pointer" @click="home()"><img id="amazon-logo" style="width: 80px; height:80px;" src="@/assets/images/Amazon-icon.png"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -67,11 +67,11 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" @click="home()">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" style="cursor:pointer" @click="home()">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
 
-        <a class="nav-link" href="/apps/eCommerce/ECommerceShop">Products</a>
+        <a class="nav-link" style="cursor:pointer" @click="product()">Products</a>
 
       </li>
       <li class="nav-item dropdown">
@@ -88,7 +88,7 @@
         </div>
       </li>
       <li class='nav-item'>
-        <a class='nav-link' href='/apps/eCommerce/ECommerceCheckout' >Shopping Cart</a>
+        <a class='nav-link' style="cursor:pointer" @click="cart()" >Shopping Cart</a>
       </li>
       <li class="nav-item">
       
@@ -275,10 +275,15 @@ export default {
     windowWidth()          { return this.$store.state.windowWidth }
   },
   methods: {
+    product(){
+      this.$router.push({name:'ecommerce-shhop'})
+    },
+    cart(){
+      this.$router.push({name:'ecommerce-check'})
+    },
+
     home(){
-      console.log("home")
       this.$router.push({name:'basicCards'})
-     
     },
     login(){
 this.$router.push({name:'page-login'})
